@@ -30,7 +30,7 @@ function bj_theme_scripts() {
 
     wp_register_script('sticky', cwp::locate_in_library('jquery.sticky.js', 'js/sticky-master'), array('jquery'), null, TRUE);
     wp_enqueue_script('sticky');
-    wp_enqueue_script('theme-js');
+    //wp_enqueue_script('theme-js');
 
 //    wp_enqueue_script('unslider');
 //    wp_enqueue_script('wp-unslider');
@@ -504,7 +504,7 @@ define('THEME_URL', get_template_directory_uri());
 function add_to_context($data) {
     /* this is where you can add your own data to Timber's context object */
     $data['foo'] = 'bar';
-    $data['foo'] = 'bar';
+    $data['theme_url'] = get_stylesheet_directory_uri();
     $data['foo'] = 'bar';
 
     return $data;

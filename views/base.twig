@@ -27,7 +27,7 @@
     <body class="{{body_class}}" data-source="base.twig">
         <header>
          {% block header %}
-                <nav id="top-nav" class="navbar" data-trigger="#cover">
+                <nav id="top-nav" class="nav">
                     <div class="container">
                         <a href="index.html" class="navbar-brand default-text">Theme Starter 2.0</a>
                         <ul class="nav navbar-nav pull-right">
@@ -105,6 +105,22 @@
                             <footer id="footer">
                                 <p>Copyright {{"now"|date('Y')}}</p>
                             </footer>
+             {% block scripts %}
+        <!-- JavaScript plugins (requires jQuery) -->
+        <script src="{{ theme_url }}/js/jquery-1.10.2.min.js"></script>
+        <!-- Modernizer -->
+        <script src="{{ theme_url }}/js/modernizr.custom.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        {{ bootstrap_js_min }}
+        <!-- Optionally enable responsive features in IE8 -->
+        <script src="{{ theme_url }}/js/respond/respond.min.js"></script>
+        <script src="{{ theme_url }}/js/fixie_min.js" ></script>
+        <script src="{{ theme_url }}/assets/js/jquery.transit.min.js" ></script>
+        <script src="{{ theme_url }}/assets/js/waypoints.min.js" ></script>
+        <script src="{{ theme_url }}/assets/js/owl-carousel/owl.carousel.min.js"></script>
+        <script src="{{ theme_url }}/assets/js/owl-carousel/owl-config.js"></script>
+        <script src="{{ theme_url }}/assets/js/theme.js" ></script>
+        {% endblock scripts %}
         {{ function('wp_footer') }}
                         </body>
                     </html>
