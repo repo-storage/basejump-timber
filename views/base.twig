@@ -24,10 +24,10 @@
 
 {% endblock head %}
     </head>
-    <body class="{{body_class}}" data-source="base.twig">
+    <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="bottom">
         <header>
          {% block header %}
-                <nav id="top-nav" class="nav">
+                <nav id="top-nav" class="nav" data-trigger='#cover'>
                     <div class="container">
                         <a href="index.html" class="navbar-brand default-text">Theme Starter 2.0</a>
                         <ul class="nav navbar-nav pull-right">
@@ -120,6 +120,7 @@
         <script src="{{ theme_url }}/assets/js/owl-carousel/owl.carousel.min.js"></script>
         <script src="{{ theme_url }}/assets/js/owl-carousel/owl-config.js"></script>
         <script src="{{ theme_url }}/assets/js/theme.js" ></script>
+        <script src="{{ theme_url }}/js/wp.js" ></script>
         {% endblock scripts %}
         {{ function('wp_footer') }}
                         </body>
