@@ -484,7 +484,7 @@ function header_styles(){
             <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
             <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         <?php endif ?>
-        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/open-sans/stylesheet.css'); ?>"/>
+
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/bootstrap/css/bootstrap.min.css'); ?>"/>
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/stylesheet.css'); ?>"/>
         <?php
