@@ -1,41 +1,92 @@
 <!doctype html>
+{% block head %}
 <!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{language_attributes}}> <![endif]-->
 <!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{language_attributes}}> <![endif]-->
 <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{language_attributes}}> <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" {{language_attributes}}> <!--<![endif]-->
     <head>
-        <meta charset="{{ bloginfo('charset') }}" />
+
         <title>{{wp_title}}</title>
+        {% block meta %}
         <meta name="description" content="{{ bloginfo('description') }}">
-        <link rel="stylesheet" href="{{ stylesheet_uri }}" type="text/css" media="screen" />
+        <meta charset="{{ bloginfo('charset') }}" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock meta %}
+        {% block styles %}
+
+        <link rel="stylesheet" href="{{ stylesheet_uri }}" type="text/css" media="screen" />
+        {{ function('header_styles') }}
+       {% endblock styles %}
         <link rel="pingback" href="{{ bloginfo('pingback_url') }}" />
 	{{function('wp_head')}}
-{% block head %}
-{% endblock %}
+
+{% endblock head %}
     </head>
     <body class="{{body_class}}" data-source="base.twig">
-        <header class="header" >
-            {% block header %}
-                <div class="wrapper">
+        <header>
+         {% block header %}
+                <nav id="top-nav" class="navbar" data-trigger="#cover">
+                    <div class="container">
+                        <a href="index.html" class="navbar-brand default-text">Theme Starter 2.0</a>
+                        <ul class="nav navbar-nav pull-right">
+                {{wp_nav_menu}}
+                                <li><a href="#features">Features</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="tablet.html">Tablets</a></li>
+                                        <li><a href="mobile.html">Mobiles</a></li>
+                                    </ul>
+                                </li>
+                                <li>Themes
+                                    <ul class="sub-menu">
+                                        <li><a href="index-1280.html"></a> Index-1280</li>
+                                    </ul>
+                                </li>
+                                <li><a href="#index">Index Page</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#slideshows">Slideshow</a></li>
+                                        <li><a href="#page-404">404 Page</a></li>
+                                        <li><a href="#folio">Folio</a></li>
+                                        <li><a href="#search">Search Page</a></li>
+                                        <li><a href="#login">Login</a></li>
+                                    </ul>
+                                </li>
 
-                    <h1 class="hdr-logo" role="banner">
-                        <a class="ink-logo-text" href="/" title="Timber" rel="home">Timber</a>
-                    </h1>
+                                <li><a href="#about">About</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#contact">Contact</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
 
-                    <nav id="access" class="ink-navigation" role="navigation">
-                    {{wp_nav_menu}}
-                        </nav><!-- #access -->
-
-                    </div>
             {% endblock %}
                 </header>
+            <section id="cover" class="cover fold">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1 class="fixie mast-head">Starter</h1>
+
+                <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
+                    cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
+                    velit veritatis vero voluptatibus.</p>
+            </div>
+            <div class="col-md-8">
+                <figure>
+                    <img src="http://lorempixel.com/720/380/technics" alt=""/>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
 
 
                 <section id="content" role="main" class="content-wrapper">
-            {% if title %}<h1>{{title}}</h1>{% endif %}
+                    <div class="container">
+                      {% if title %}<h1>{{title}}</h1>{% endif %}
                         <div class="wrapper {{sidebar_class}}">
                 {% block content %}
                                 Sorry, no content
@@ -46,11 +97,13 @@
                     {{sidebar}}
                                 </aside>
             {% endif %}
+                    </div>
+
                             </section>
 
                             <footer id="footer">
-            Copyright {{"now"|date('Y')}}
-                                </footer>
+                                <p>Copyright {{"now"|date('Y')}}</p>
+                            </footer>
         {{ function('wp_footer') }}
-                            </body>
-                        </html>
+                        </body>
+                    </html>

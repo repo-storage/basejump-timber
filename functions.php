@@ -35,11 +35,11 @@ if (file_exists(get_template_directory() . '/plugins/theme-plugins.php'))
 
 function install_guide($templates) {
     $tpl = get_template_directory() . '/install-guide.php';
-    //load_template($tpl);
+    load_template($tpl);
 }
 
 if (!class_exists('cwp') OR !class_exists('al_manager') OR !$wp_version > 3.4):
-    //add_filter('template_include', 'install_guide');
+    add_filter('template_include', 'install_guide');
     return;
 endif;
 
@@ -55,9 +55,6 @@ else:
 endif;
 
 
-/*
- * add layout tpl
- */
 
 /**
  * sudo function
@@ -65,19 +62,6 @@ endif;
 function _bj_layout() {
 
 }
-
-
-//mobile templates
-
-//add_filter('template_include', array('Tpl_Layout', 'mobile_templates'));
-//
-///** custom post type archive templates */
-//add_filter('template_include', array('Tpl_Layout', 'post_type_templates'));
-///** custom post type single templates */
-////add_filter('template_include', array('bj_layout', 'single_post_type_templates'));
-///** use custom template routing */
-//add_filter('template_include', array('Tpl_Layout', 'tpl_include'));
-
 
 /**
  * ***************THEME OPTIONS *************************************************

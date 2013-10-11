@@ -476,6 +476,22 @@ if (!function_exists('custom_dp_dashboard')):
 
 endif;
 
+function header_styles(){
+    ob_start()?>
+
+        <?php if (mod_mobile::detect()->isIphone()): ?>
+            <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        <?php endif ?>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/open-sans/stylesheet.css'); ?>"/>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/bootstrap/css/bootstrap.min.css'); ?>"/>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/stylesheet.css'); ?>"/>
+        <?php
+        return ob_get_clean();
+}
+
+
 /**
  * twig functions
  */
@@ -488,6 +504,9 @@ define('THEME_URL', get_template_directory_uri());
 function add_to_context($data) {
     /* this is where you can add your own data to Timber's context object */
     $data['foo'] = 'bar';
+    $data['foo'] = 'bar';
+    $data['foo'] = 'bar';
+
     return $data;
 }
 
@@ -497,6 +516,7 @@ function add_to_twig($twig) {
     $twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
     return $twig;
 }
+
 
 function myfoo($text) {
     $text .= ' bar!';
