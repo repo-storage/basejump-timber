@@ -3,6 +3,9 @@
  */
 jQuery(document).ready(function($) {
 
+/**
+ * toggle adminbar view or move admin to the bottom of the page
+ */
     var admin_bar_option = $('body').data('adminbar-option');
     if (admin_bar_option == 'bottom') {
         $('#wpadminbar').addClass('bar-to-bottom');
