@@ -24,7 +24,7 @@
 
 {% endblock head %}
     </head>
-    <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="bottom">
+    <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="bottom" data-logged-in="{{ is_logged_in }}">
         <header>
          {% block header %}
                 <nav id="top-nav" class="nav" data-trigger='#cover'>

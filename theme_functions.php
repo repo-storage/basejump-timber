@@ -505,7 +505,7 @@ function add_to_context($data) {
     /* this is where you can add your own data to Timber's context object */
     $data['foo'] = 'bar';
     $data['theme_url'] = get_stylesheet_directory_uri();
-    $data['foo'] = 'bar';
+    $data['is_logged_in'] = is_user_logged_in();
 
     return $data;
 }
