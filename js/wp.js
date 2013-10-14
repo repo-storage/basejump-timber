@@ -13,6 +13,7 @@ jQuery(document).ready(function($) {
         //logged in lets proceed
         var admin_bar_option = $('body').data('adminbar-option');
         if (admin_bar_option == 'bottom') {
+             $('#wpadminbar').hide('slow');
             $('#wpadminbar').addClass('bar-to-bottom');
             $('body').addClass('hidden-admin-bar');
         } else {
