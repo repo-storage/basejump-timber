@@ -370,7 +370,6 @@ function apm_menus() {
 }
 
 if (class_exists('AdminbarPostMenus'))
-// run the function on init;
     add_action('init', 'apm_menus');
 
 
@@ -492,42 +491,21 @@ function header_styles(){
 }
 
 
+
 /**
- * twig functions
+ * -------------------------------------------------------------
  */
 
-add_filter('get_twig', 'add_to_twig');
-add_filter('timber_context', 'add_to_context');
-
-define('THEME_URL', get_template_directory_uri());
-
-function add_to_context($data) {
-    /* this is where you can add your own data to Timber's context object */
-    $data['foo'] = 'bar';
-    $data['theme_url'] = get_stylesheet_directory_uri();
-    $data['is_logged_in'] = is_user_logged_in();
-
-    return $data;
-}
-
-function add_to_twig($twig) {
-    /* this is where you can add your own fuctions to twig */
-    $twig->addExtension(new Twig_Extension_StringLoader());
-    $twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
-    return $twig;
-}
-
-
-function myfoo($text) {
-    $text .= ' bar!';
-    return $text;
-}
+//load timber functions
+$timber_functions = get_template_directory() . '/timber-functions.php';
+if (file_exists($timber_functions))
+    include_once $timber_functions;
 
 
 /**
  * -------------------------------------------------------------
  */
 //load custom_functions.php : place your child theme functions in this file
-
-if ($cusom_functions = file_exists(get_stylesheet_directory() . '/custom_functions.php'))
+$cusom_functions = get_stylesheet_directory() . '/custom_functions.php';
+if (file_exists($cusom_functions))
     include_once $custom_functions;
