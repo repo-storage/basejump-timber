@@ -30,7 +30,7 @@ function add_to_context($data) {
     $data['theme_mod'] = get_theme_mods();
     $data['options'] = wp_load_alloptions();
     $data['site_url'] = site_url();
-    $data['sidebar'] = Timber::get_widgets('sidebar-2');
+    $data['sidebar'] = Timber::get_widgets('primary-sidebar');
     $data['is_home'] = is_home();
     //pico theme variables converted to wordpress
     $data['config'] = get_theme_mods();
@@ -54,8 +54,24 @@ function add_to_twig($twig) {
 
 }
 
-
 function myfoo($text) {
     $text .= ' bar!';
     return $text;
+}
+
+function header_styles(){
+    ob_start()?>
+
+        <?php if (mod_mobile::detect()->isIphone()): ?>
+            <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        <?php endif ?>
+
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/bootstrap/css/bootstrap.min.css'); ?>"/>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/open-sans/stylesheet.css'); ?>"/>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/stylesheet.css'); ?>"/>
+
+        <?php
+        return ob_get_clean();
 }

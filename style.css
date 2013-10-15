@@ -48,7 +48,7 @@ body.admin-bar #footer {
     padding-bottom: 28px;
 }
 #wpadminbar {
-    top: auto !important;
+    /*top: auto !important;*/
     bottom: 0;
 }
 .bar-to-bottom .quicklinks .menupop ul {
