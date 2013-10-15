@@ -123,7 +123,11 @@
                         {% block address %}
 
                                                     <address class="default-text">
-                                                        <span class="sub-headlines"><span class="address-icon glyphicon glyphicon-map-marker"></span> {{ config.organization }}</span>
+                                                    <span class="sub-headlines">
+                                                    <span class="address-icon glyphicon glyphicon-map-marker">
+                                                        {{ config.contact_org }}
+                                                        </span>
+                                                        </span>
                                                         <span>{{ config.contact_address }}</span>
                                                         <span>{{ config.contact_name }}</span>
                                                         <span><abbr title="Phone">P: </abbr> {{ config.contact_number }}</span>
