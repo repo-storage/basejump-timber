@@ -1,42 +1,161 @@
-{% include 'html-header.twig' %}
+<!doctype html>
 {% block head %}
-{% endblock %}
-</head>
-    <body class="{{body_class}}" data-source="base.twig">
-        <header class="header" >
-            {% block header %}
-            <div class="wrapper">
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{language_attributes}}> <!--<![endif]-->
+    <head>
+        <title>{{wp_title}}</title>
+{% block meta %}
+        <meta name="description" content="{{ bloginfo('description') }}">
+        <meta charset="{{ bloginfo('charset') }}" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock meta %}
+{% block styles %}
+        <link rel="stylesheet" href="{{ stylesheet_uri }}" type="text/css" media="screen" />
+{{ function('header_styles') }}
+{% endblock styles %}
+        <link rel="pingback" href="{{ bloginfo('pingback_url') }}" />
+{{function('wp_head')}}
+{% endblock head %}
+    </head>
+    <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
+        <header>
+         {% block header %}
+                <nav id="top-nav" class="nav" data-trigger='#cover'>
+                    <div class="container">
+                        <a href="{{ site_url }}" class="navbar-brand primary-text">Theme Starter 2.0</a>
 
-                <h1 class="hdr-logo" role="banner">
-                    <a class="ink-logo-text" href="/" title="Timber" rel="home">Timber</a>
-                </h1>
+                        <ul class="nav navbar-nav pull-right">
+                            <li><a href="#features">Features</a>
+                                <ul class="sub-menu">
+                                    <li><a href="tablet.html">Tablets</a></li>
+                                    <li><a href="mobile.html">Mobiles</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Themes</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index-1280.html">Index-1280</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#index">Index Page</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#slideshows">Slideshow</a></li>
+                                    <li><a href="#page-404">404 Page</a></li>
+                                    <li><a href="#folio">Folio</a></li>
+                                    <li><a href="#search">Search Page</a></li>
+                                    <li><a href="#login">Login</a></li>
+                                </ul>
+                            </li>
 
-                <nav id="access" class="ink-navigation" role="navigation">
-                    {{wp_nav_menu}}
-                </nav><!-- #access -->
-
-            </div>
+                            <li><a href="#about">About</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#contact">Contact</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="nav-separator"></div>
+                </nav>
             {% endblock %}
-        </header>
+            </header>
+            <section id="cover" class="cover fold">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h1 class="fixie mast-head">Starter</h1>
+
+                            <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
+                                cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
+                                velit veritatis vero voluptatibus.</p>
+                        </div>
+                        <div class="col-md-8">
+                            <figure>
+                                <img src="http://lorempixel.com/720/380/technics" alt=""/>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
-        <section id="content" role="main" class="content-wrapper">
-            {% if title %}<h1>{{title}}</h1>{% endif %}
-            <div class="wrapper {{sidebar_class}}">
-                {% block content %}
-                    Sorry, no content
-                {% endblock %}
-            </div>
-            {% if sidebar %}
-                <aside class="layout-sidebar">
-                    {{sidebar}}
-                </aside>
-            {% endif %}
-        </section>
+            <section id="content" role="main" class="content-wrapper">
+                <div class="container">
 
-        <footer id="footer">
-            {% include 'footer.twig' %}
-        </footer>
+                    <div class="row">
+                        <div class="col-md-8 post">
+                             {% if title %}<h1>{{title}}</h1>{% endif %}
+                                {% block content %}
+                                Sorry, no content
+                            {% endblock %}
+                            </div>
+                            <div id="sidebar" class="col-md-4 sidebar">
+                                {% block sidebar %}
+                                    <aside>
+                                        <h3>About {{ site_title }}</h3>
+                                        <p class="default-text">
+                                    {{ config.site_slug }}
+                                            </p>
+                                        </aside>
+                                {% if sidebar %}
+
+                                {{sidebar}}
+
+                                {% endif %}
+                                {% endblock sidebar %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <footer id="footer">
+                                {% block footer %}
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8 headlines">
+                                                <h1>Lorem ipsum dolor.</h1>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sunt, facere, eius nemo sed quas atque asperiores qui nulla animi mollitia inventore rem consectetur temporibus quisquam? Consequuntur, porro, ipsam quasi obcaecati enim ipsum consectetur. Nobis, non, natus, aliquid, eos numquam asperiores culpa molestiae mollitia quod odit voluptates consectetur veritatis saepe fugit illum adipisci exercitationem cumque tempore animi optio nihil dolorem perspiciatis impedit repellendus veniam deserunt quam sunt labore est? Optio, vitae pariatur minus natus quia facere consectetur facilis error adipisci.</p>
+                                                </aside>
+                                            </div>
+                                            <div class="col-md-4">
+                        {% block address %}
+
+                                                    <address class="default-text">
+                                                        <span class="sub-headlines"><span class="address-icon glyphicon glyphicon-map-marker"></span> {{ config.organization }}</span>
+                                                        <span>{{ config.contact_address }}</span>
+                                                        <span>{{ config.contact_name }}</span>
+                                                        <span><abbr title="Phone">P: </abbr> {{ config.contact_number }}</span>
+
+                                                    </address>
+                     {% endblock address %}
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+            {{ config.organization }} : {{ config.copyright }}
+                                        <!-- ******end - row****** -->
+            {% endblock footer %}
+                                        <p>Copyright {{"now"|date('Y')}}</p>
+                                    </footer>
+             {% block scripts %}
+                                    <!-- JavaScript plugins (requires jQuery) -->
+                                    <script src="{{ theme_url }}/js/jquery-1.10.2.min.js"></script>
+                                    <!-- Modernizer -->
+                                    <script src="{{ theme_url }}/js/modernizr.custom.js"></script>
+                                    <!-- Include all compiled plugins (below), or include individual files as needed -->
+        {{ bootstrap_js_min }}
+                                    <!-- Optionally enable responsive features in IE8 -->
+                                    <script src="{{ theme_url }}/js/respond/respond.min.js"></script>
+                                    <script src="{{ theme_url }}/js/fixie_min.js" ></script>
+                                    <script src="{{ theme_url }}/assets/js/jquery.transit.min.js" ></script>
+                                    <script src="{{ theme_url }}/assets/js/waypoints.min.js" ></script>
+                                    <script src="{{ theme_url }}/assets/js/theme.js" ></script>
+                                    <script src="{{ theme_url }}/js/wp.js" ></script>
+        {% endblock scripts %}
         {{ function('wp_footer') }}
-    </body>
-</html>
+                                </body>
+                            </html>
