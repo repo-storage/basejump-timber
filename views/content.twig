@@ -1,8 +1,8 @@
 <article {{ function('post_class') }} id="post-{{post.ID}}">
 	{% block content %}
-        <h1 class="h2"><a href="{{post.get_path}}">{{post.title}}</a></h1>
+        <h1><a href="{{post.get_path}}">{{post.title}}</a></h1>
         <p>{{post.get_preview}}</p>
-
+        <p>{{post|print_r}}</p>
 		{% if post.get_thumbnail %}
         <img src="{{post.get_thumbnail.get_url}}" />
 		{% endif %}

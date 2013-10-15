@@ -11,10 +11,10 @@
 global $wp_query;
 
 $data = Timber::get_context();
-$data['posts'] = Timber::get_posts();
-
+$post = Timber::get_posts();
+$data['posts'] = $post;
 $author = new TimberUser($wp_query->query_vars['author']);
 $data['author'] = $author;
 $data['title'] = 'Author Archives: ' . $author->name();
-
-Timber::render(array('author.twig', 'archive.twig'), $data);
+$templates = array('author-'.$author->slug().'.twig','author-'.$post->post_author.'.twig','author.twig', 'archive.twig');
+Timber::render($templates, $data);

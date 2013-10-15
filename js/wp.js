@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
             $('#wpadminbar').find('#hide-wpadminbar').show('slow');
             $('<button id="hide-wpadminbar" class="custom">AdminBar</button>').appendTo('body').click(function() {
                 $('#wpadminbar').fadeToggle('slow');
-                $('body').toggleClass('hidden-admin-bar');
+                //$('body').toggleClass('hidden-admin-bar');
             });
         }
     }
