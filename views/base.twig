@@ -22,12 +22,14 @@
 {% endblock head %}
     </head>
     <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
+   <span id="top-page">   <!-- class content --> </span>
+
+
         <header>
          {% block header %}
                 <nav id="top-nav" class="nav" data-trigger='#cover'>
                     <div class="container">
                         <a href="{{ site_url }}" class="navbar-brand primary-text">Theme Starter 2.0</a>
-
                         <ul class="nav navbar-nav pull-right">
                             <li><a href="#features">Features</a>
                                 <ul class="sub-menu">
@@ -63,20 +65,14 @@
             </header>
             <section id="cover" class="cover fold">
                 <div class="container">
+                    {% block cover %}
                     <div class="row">
                         <div class="col-md-4">
-                            <h1 class="fixie mast-head">Starter</h1>
+                            <h1 class="fixie mast-head">{{ site_title }}</h1>
+                            <p class="primary-text">{{ site_description }}</p>
 
-                            <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
-                                cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
-                                velit veritatis vero voluptatibus.</p>
-                        </div>
-                        <div class="col-md-8">
-                            <figure>
-                                <img src="http://lorempixel.com/720/380/technics" alt=""/>
-                            </figure>
-                        </div>
                     </div>
+                {% endblock cover %}
                 </div>
             </section>
 
@@ -92,39 +88,44 @@
                             {% endblock %}
                             </div>
                             <div id="sidebar" class="col-md-4 sidebar">
-                                {% block sidebar %}
-                                    <aside>
+                                 <aside>
                                         <h3>About {{ site_title }}</h3>
                                         <p class="default-text">
                                     {{ config.site_slug }}
                                             </p>
-                                        </aside>
-                                {% if sidebar %}
-
-                                {{sidebar}}
-
-                                {% endif %}
+                                   </aside>
+                                    {% if sidebar is empty %}
+                                    <aside>
+                                        <h1>Sidebar</h1>
+                                        <p>{{ sample_widget }}</p>
+                                    </aside>
+                                    {% endif %}
+                                {% block sidebar %}
+                                {{ sidebar }}
                                 {% endblock sidebar %}
-                                        </div>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
+                        </section>
 
-                            <footer id="footer">
+                        <footer id="footer">
                                 {% block footer %}
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-8 headlines">
-                                                <h1>Lorem ipsum dolor.</h1>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sunt, facere, eius nemo sed quas atque asperiores qui nulla animi mollitia inventore rem consectetur temporibus quisquam? Consequuntur, porro, ipsam quasi obcaecati enim ipsum consectetur. Nobis, non, natus, aliquid, eos numquam asperiores culpa molestiae mollitia quod odit voluptates consectetur veritatis saepe fugit illum adipisci exercitationem cumque tempore animi optio nihil dolorem perspiciatis impedit repellendus veniam deserunt quam sunt labore est? Optio, vitae pariatur minus natus quia facere consectetur facilis error adipisci.</p>
-                                                </aside>
-                                            </div>
-                                            <div class="col-md-4">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-8 headlines">
+                                            <h1>Lorem ipsum dolor.</h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sunt, facere, eius nemo sed quas atque asperiores qui nulla animi mollitia inventore rem consectetur temporibus quisquam? Consequuntur, porro, ipsam quasi obcaecati enim ipsum consectetur. Nobis, non, natus, aliquid, eos numquam asperiores culpa molestiae mollitia quod odit voluptates consectetur veritatis saepe fugit illum adipisci exercitationem cumque tempore animi optio nihil dolorem perspiciatis impedit repellendus veniam deserunt quam sunt labore est? Optio, vitae pariatur minus natus quia facere consectetur facilis error adipisci.</p>
+                                            </aside>
+                                        </div>
+                                        <div class="col-md-4">
                         {% block address %}
 
-                                                    <address class="default-text">
-                                                        <span class="sub-headlines"><span class="address-icon glyphicon glyphicon-map-marker"></span> {{ config.organization }}</span>
-                                                        <span>{{ config.contact_address }}</span>
+                                                <address class="default-text">
+                                                    <span class="sub-headlines">
+                                                       {{ config.contact_organization }} <span class="address-icon glyphicon glyphicon-map-marker">
+                                                            </span>
+                                                        </span>
+                                                        <span>{{ config.contact_address }} {{ config.contact_city }} {{ config.contact_state }} {{ config.contact_zip_code }}</span>
                                                         <span>{{ config.contact_name }}</span>
                                                         <span><abbr title="Phone">P: </abbr> {{ config.contact_number }}</span>
 
@@ -136,11 +137,12 @@
 
                                             </div>
                                         </div>
-            {{ config.organization }} : {{ config.copyright }}
+
                                         <!-- ******end - row****** -->
-            {% endblock footer %}
-                                        <p>Copyright {{"now"|date('Y')}}</p>
+           {% endblock footer %}
+                                        <p class="regular-text">{{ config.contact_organization }} | Copyright {{"now"|date('Y')}}</p>
                                     </footer>
+     <a href="#top-page" id="top-link"><i class="loops-arrows"></i>top</a>
              {% block scripts %}
                                     <!-- JavaScript plugins (requires jQuery) -->
                                     <script src="{{ theme_url }}/js/jquery-1.10.2.min.js"></script>
