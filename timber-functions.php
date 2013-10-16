@@ -32,7 +32,10 @@ function add_to_context($data) {
     $data['site_url'] = site_url();
     //$data['sidebar'] = Timber::get_widgets('primary-sidebar');
     $data['sidebar'] = Timber::get_widgets('primary-sidebar');
-    $data['home_sidebar'] = Timber::get_widgets('home-sidebar');
+    $data['info_1'] = Timber::get_widgets('info-1');
+    $data['info_2'] = Timber::get_widgets('info-2');
+    $data['info_3'] = Timber::get_widgets('info-3');
+    $data['info_4'] = Timber::get_widgets('info-4');
     $data['is_home'] = is_home();
     //pico theme variables converted to wordpress
     $data['config'] = get_theme_mods();
