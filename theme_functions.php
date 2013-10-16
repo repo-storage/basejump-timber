@@ -171,6 +171,7 @@ function bj_widgets() {
     cwp::add_widget('info 2', 'info-2', 'Display widgets in the second footer box');
     cwp::add_widget('info 3', 'info-3', 'Display widgets in the third footer box');
     cwp::add_widget('info 4', 'info-4', 'Display widgets in the fourth footer box');
+    cwp::add_widget('home sidebar', 'home-sidebar', 'Display widgets on the Home page sidebar');
     //cwp::add_widget('info 5', 'info-5', 'Display widgets in the fifth footer box');
     //cwp::add_widget('Widget Page', 'widget-page', 'Display widgets on the widget-page tpl');
     //cwp::register_sidebar('404 Page', '404-page', 'Display widgets on the 404-page tpl');

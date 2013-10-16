@@ -2,7 +2,7 @@
 
 {% block content %}
 	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+		{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
 	{% endfor %}
 
 {% endblock content %}
