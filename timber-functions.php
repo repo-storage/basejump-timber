@@ -68,7 +68,7 @@ function myfoo($text) {
 
 function header_styles(){
     ob_start()?>
-
+<link rel="shortcut icon" href="<?php echo Theme_Function::file_uri('images/favicon.ico'); ?>">
         <?php if (mod_mobile::detect()->isIphone()): ?>
             <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
             <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
