@@ -123,11 +123,10 @@
 
                                                 <address class="default-text">
                                                     <span class="sub-headlines">
-                                                        <span class="address-icon glyphicon glyphicon-map-marker">
-                                                        {{ config.contact_org }}
+                                                       {{ config.contact_organization }} <span class="address-icon glyphicon glyphicon-map-marker">
                                                             </span>
                                                         </span>
-                                                        <span>{{ config.contact_address }}</span>
+                                                        <span>{{ config.contact_address }} {{ config.contact_city }} {{ config.contact_state }} {{ config.contact_zip_code }}</span>
                                                         <span>{{ config.contact_name }}</span>
                                                         <span><abbr title="Phone">P: </abbr> {{ config.contact_number }}</span>
 
@@ -139,10 +138,10 @@
 
                                             </div>
                                         </div>
-            {{ config.organization }} : {{ config.copyright }}
+
                                         <!-- ******end - row****** -->
-            {% endblock footer %}
-                                        <p>Copyright {{"now"|date('Y')}}</p>
+           {% endblock footer %}
+                                        <p class="regular-text">{{ config.contact_organization }} | Copyright {{"now"|date('Y')}}</p>
                                     </footer>
      <a href="#top-page" id="top-link"><i class="loops-arrows"></i>top</a>
              {% block scripts %}
