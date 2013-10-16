@@ -18,15 +18,18 @@
                         <section id="comments" class="comments">
 
 					<h2 class="">
-{{ post.comment_count }} Thought!
+
+{{ post.comment_count }}  Thought{% if post.comment_count > 1 %}s{% endif %}!
                                             </h2>
 
 
-					<div class="responses">
-					{% for cmt in post.get_comments() %}
+                            <ol class="commentslist">
+                            {% for cmt in post.get_comments() %}
                                                 {% include "comment.twig" with {comment:cmt} %}
 					{% endfor %}
-</div>
+                            </ol>
+
+
                                 {{ comment_form }}
 
 			</section>

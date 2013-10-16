@@ -19,13 +19,11 @@
 
 	$data = Timber::get_context();
 	$data['menu'] = new TimberMenu();
-	$timber_posts = Timber::get_posts('TimberPost');
+        $home_query = array('posts_per_page' => 3);
+	$timber_posts = Timber::get_posts($home_query);
 	$data['posts'] = $timber_posts;
         $data['base_tpl'] = 'base.twig';
-	$templates = array('index.twig');
-	if (is_home()){
-		array_unshift($templates, 'home.twig');
-	}
+	$templates = array('home.twig');
 	Timber::render($templates, $data);
 
 

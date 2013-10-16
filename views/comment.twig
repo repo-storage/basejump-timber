@@ -1,4 +1,6 @@
-<aside class="blog-comment {{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
+<li>
+<article class="blog-comment {{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
 	<h3 class="comment-author">{{comment.author.name}} says</h3>
         <p class="default-text">{{comment.comment_content|wpautop}}</p>
-</aside>
+</article>
+</li>

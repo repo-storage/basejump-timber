@@ -2,7 +2,6 @@
 	{% block content %}
         <h1><a href="{{post.get_path}}">{{post.title}}</a></h1>
         <p>{{post.get_preview}}</p>
-        <p>{{post|print_r}}</p>
 		{% if post.get_thumbnail %}
         <img src="{{post.get_thumbnail.get_url}}" />
 		{% endif %}
