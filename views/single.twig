@@ -2,10 +2,9 @@
 
 {% block content %}
 
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<article {{ function('post_class') }} id="post-{{post.ID}}">
 			<section class="article-content">
-				<h1 class="article-h1">{{post.post_title}}</h1>
+				<h1>{{post.post_title}}</h1>
 
 				<p class="blog-author">
 					<span>By</span><a href="{{post.author.get_path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.display_date }}
@@ -16,21 +15,25 @@
 				</div>
 			</section>
 
-			<section class="comments">
-				<div class="respond">
-					<h3 class="h2">Comments</h3>
-						{{ comment_form }}
-					</div>
-					<div class="responses">
+                        <section id="comments" class="comments">
 
-					{% for cmt in post.get_comments() %}
-						{% include "comment.twig" with {comment:cmt} %}
+					<h2 class="">
+
+{{ post.comment_count }}  Thought{% if post.comment_count > 1 %}s{% endif %}!
+                                            </h2>
+
+
+                            <ol class="commentslist">
+                            {% for cmt in post.get_comments() %}
+                                                {% include "comment.twig" with {comment:cmt} %}
 					{% endfor %}
-</div>
+                            </ol>
+
+
+                                {{ comment_form }}
 
 			</section>
 
 		</article>
-	</div> <!-- /content-wrapper -->
 
 {% endblock %}

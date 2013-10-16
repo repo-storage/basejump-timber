@@ -1,0 +1,32 @@
+{% extends base_tpl %}
+{% block cover %}
+<div class="row">
+                        <div class="col-md-4">
+                            <h1 class="fixie mast-head">Starter</h1>
+
+                            <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
+                                cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
+                                velit veritatis vero voluptatibus.</p>
+                        </div>
+                        <div class="col-md-8">
+                            <figure>
+                                <img src="http://lorempixel.com/820/380/technics" alt=""/>
+                            </figure>
+                        </div>
+</div>
+{% endblock cover %}
+{% block content %}
+	{% for post in posts %}
+		{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
+	{% endfor %}
+{% endblock content %}
+
+{% block sidebar %}
+{% if home_sidebar is empty %}
+<aside>
+    <h1>Home Sidebar</h1>
+    <p>{{ sample_widget }}</p>
+</aside>
+{% endif %}
+{{ home_sidebar }}
+{% endblock sidebar %}
