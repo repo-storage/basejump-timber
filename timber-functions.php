@@ -30,7 +30,9 @@ function add_to_context($data) {
     $data['theme_mod'] = get_theme_mods();
     $data['options'] = wp_load_alloptions();
     $data['site_url'] = site_url();
+    //$data['sidebar'] = Timber::get_widgets('primary-sidebar');
     $data['sidebar'] = Timber::get_widgets('primary-sidebar');
+    $data['home_sidebar'] = Timber::get_widgets('home-sidebar');
     $data['is_home'] = is_home();
     //pico theme variables converted to wordpress
     $data['config'] = get_theme_mods();
@@ -38,6 +40,8 @@ function add_to_context($data) {
     $data['base_url'] = get_bloginfo('wpurl');
     $data['theme_dir'] = get_stylesheet_directory();
     $data['site_title'] = get_bloginfo('name');
+    $data['site_description'] = get_bloginfo('description');
+    $data['sample_widget'] = 'Please go to -- Admin > Apperance widgets and place any widgets you want to appear on your home page here';
     $data['meta'] = '';
     $data['pages'] = '';
     $data['is_front_page'] = is_front_page();
@@ -74,4 +78,10 @@ function header_styles(){
 
         <?php
         return ob_get_clean();
+}
+
+function timber_widgets($index = 'primary-sidebar') {
+    ob_start();
+    dynamic_sidebar($index);
+    return ob_get_clean();
 }
