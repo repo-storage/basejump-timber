@@ -14,21 +14,18 @@ add_filter('timber_context', 'add_to_context');
 
 define('THEME_URL', get_template_directory_uri());
 
-
-function get_wp_template($template){
+function get_wp_template($template) {
 
 }
-
 
 /**
  *
  * @param type $data
  * @return string
  */
-function detect_mobiles(){
+function detect_mobiles() {
 
     return new Mobile_Detect();
-
 }
 
 function add_to_context($data) {
