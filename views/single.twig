@@ -1,8 +1,9 @@
 {% extends base_twig %}
 
 {% block content %}
-
-		<article {{ function('post_class') }} id="post-{{post.ID}}">
+<div class="col-md-8 post">
+		<artic
+                    le {{ function('post_class') }} id="post-{{post.ID}}">
 			<section class="article-content">
 				<h1>{{post.post_title}}</h1>
 
@@ -35,5 +36,6 @@
 			</section>
 
 		</article>
+        </div>
 
-{% endblock %}
+{% endblock content %}

@@ -37,5 +37,5 @@
 		}
                 $post = Timber::get_posts();
 		$data['posts'] = $post;
-                $templates = array('archive-'.$post->post_type.'.twig','archive.twig', 'index.twig');
+                $templates = array('index.twig');
 		Timber::render($templates, $data);
