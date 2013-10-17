@@ -1,5 +1,6 @@
 {% extends base_twig %}
 {% block content %}
+<div class="col-md-8 post">
 <article  {{ function('post_class') }} id="post-{{post.ID}}">
     <section class="article-content">
         <h1 class="article-h1">{{post.post_title}}</h1>
@@ -10,4 +11,5 @@
         </section>
 
     </article>
+    </div>
 {% endblock %}
