@@ -1,19 +1,23 @@
 {% extends base_twig %}
 {% block cover %}
-<div class="row">
-                        <div class="col-md-4">
-                            <h1 class="fixie mast-head">Starter</h1>
+<section id="cover" class="cover fold">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1 class="fixie mast-head">Starter</h1>
 
-                            <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
-                                cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
-                                velit veritatis vero voluptatibus.</p>
-                        </div>
-                        <div class="col-md-8">
-                            <figure>
-                                <img src="http://lorempixel.com/820/380/technics" alt=""/>
-                            </figure>
-                        </div>
-</div>
+                <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
+                    cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
+                    velit veritatis vero voluptatibus.</p>
+            </div>
+            <div class="col-md-8">
+                <figure>
+                    <img src="http://lorempixel.com/820/380/technics" alt=""/>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock cover %}
 {% block content %}
 	{% for post in posts %}
