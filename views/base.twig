@@ -22,14 +22,15 @@
 {% endblock head %}
     </head>
     <body class="wp {{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
-   <span id="top-page">   <!-- class content --> </span>
+        <span id="top-page">   <!-- class content --> </span>
 
 
         <header>
          {% block header %}
+                {% block top_nav %}
                 <nav id="top-nav" class="nav" data-trigger='#cover'>
                     <div class="container">
-                        <a href="{{ site_url }}" class="navbar-brand primary-text">Theme Starter 2.0</a>
+                        <a href="{{ site_url }}" class="navbar-brand primary-text">{{ site_title }}</a>
                         <ul class="nav navbar-nav pull-right">
                             <li><a href="#features">Features</a>
                                 <ul class="sub-menu">
@@ -61,48 +62,43 @@
                     </div>
                     <div id="nav-separator"></div>
                 </nav>
-            {% endblock %}
+                {% endblock top_nav %}
+            {% endblock header %}
             </header>
-            <section id="cover" class="cover">
-                <div class="container">
-                    {% block cover %}
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h1 class="fixie mast-head">{{ site_title }} </h1>
-                        </div>
-                        </div>
-                {% endblock cover %}
-</div>
-            </section>
-
+    {% block cover %}
+{% endblock cover %}
 
             <section id="content" role="main" class="content-wrapper">
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-md-8 post">
+                         {% block content %}
+                            <div class="col-md-8 post">
                              {% if title %}<h1>{{title}}</h1>{% endif %}
-                                {% block content %}
-                                Sorry, no content
-                            {% endblock %}
-                            </div>
-                            <div id="sidebar" class="col-md-4 sidebar">
-                                 <aside>
+
+                                    Sorry, no content
+
+                                </div>
+{% endblock content %}
+                      {% block sidebar %}
+                                <div id="sidebar" class="col-md-4 sidebar">
+                                    <aside>
                                         <h3>About {{ site_title }}</h3>
                                         <p class="default-text">
                                     {{ config.site_slug }}
                                             </p>
-                                   </aside>
+                                        </aside>
                                     {% if sidebar is empty %}
-                                    <aside>
-                                        <h1>Sidebar</h1>
-                                        <p>{{ sample_widget }}</p>
-                                    </aside>
+                                        <aside>
+                                            <h1>Sidebar</h1>
+                                            <p>{{ sample_widget }}</p>
+                                        </aside>
                                     {% endif %}
-                                {% block sidebar %}
+
                                 {{ sidebar }}
-                                {% endblock sidebar %}
+
                                     </div>
+                        {% endblock sidebar %}
                                 </div>
                             </div>
                         </section>
@@ -115,40 +111,41 @@
                                             {{ info_1 }}
                                                 {% if info_1 is empty %}
                                                 <aside>
-                                            <h1>Lorem ipsum dolor.</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sunt, facere, eius nemo sed quas atque asperiores qui nulla animi mollitia inventore rem consectetur temporibus quisquam? Consequuntur, porro, ipsam quasi obcaecati enim ipsum consectetur. Nobis, non, natus, aliquid, eos numquam asperiores culpa molestiae mollitia quod odit voluptates consectetur veritatis saepe fugit illum adipisci exercitationem cumque tempore animi optio nihil dolorem perspiciatis impedit repellendus veniam deserunt quam sunt labore est? Optio, vitae pariatur minus natus quia facere consectetur facilis error adipisci.</p>
-                                            </aside>
+                                                    <h1>Lorem ipsum dolor.</h1>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sunt, facere, eius nemo sed quas atque asperiores qui nulla animi mollitia inventore rem consectetur temporibus quisquam? Consequuntur, porro, ipsam quasi obcaecati enim ipsum consectetur. Nobis, non, natus, aliquid, eos numquam asperiores culpa molestiae mollitia quod odit voluptates consectetur veritatis saepe fugit illum adipisci exercitationem cumque tempore animi optio nihil dolorem perspiciatis impedit repellendus veniam deserunt quam sunt labore est? Optio, vitae pariatur minus natus quia facere consectetur facilis error adipisci.</p>
+                                                </aside>
                                                 {% endif %}
-                                        </div>
-                                        <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
 
                                             {{ info_2 }}
                                             {% if info_2 is empty %}
                         {% block address %}
 
                                                 <address class="default-text">
-                                                    <span class="sub-headlines">
-                                                       {{ config.contact_organization }} <i class="icon-map-marker"></i>
-                                                        </span>
-                                                        <span>{{ config.contact_address }} {{ config.contact_city }} {{ config.contact_state }} {{ config.contact_zip_code }}</span>
-                                                        <span>{{ config.contact_name }}</span>
-                                                        <span><abbr title="Phone">P: </abbr> {{ config.contact_number }}</span>
 
-                                                    </address>
+                                                    <span class="sub-headlines">
+                                                        <i class="icon-home"></i> {{ config.contact_organization }}
+                                                    </span>
+                                                    <span><i class="icon-map-marker"></i> {{ config.contact_address }} {{ config.contact_city }} {{ config.contact_state }} {{ config.contact_zip_code }}</span>
+                                                    <span><i class="icon-user"></i> {{ config.contact_name }}</span>
+                                                    <span><abbr title="Phone"><i class="icon-phone"></abbr></i> {{ config.contact_number }}</span>
+
+                                                </address>
                      {% endblock address %}
                      {% endif %}
-                                                </div>
-
-
-
                                             </div>
-                                        </div>
 
-                                        <!-- ******end - row****** -->
+
+
+                                        </div>
+                                    </div>
+
+                                    <!-- ******end - row****** -->
            {% endblock footer %}
-                                        <p class="regular-text">{{ config.contact_organization }} | Copyright {{"now"|date('Y')}}</p>
-                                    </footer>
-     <a href="#top-page" id="top-link"><i class="icon-chevron-sign-up"></i></a>
+                                    <p class="regular-text">{{ config.contact_organization }} | Copyright {{"now"|date('Y')}}</p>
+                                </footer>
+                                <a href="#top-page" id="top-link"><i class="icon-chevron-sign-up"></i></a>
              {% block scripts %}
                                     <!-- JavaScript plugins (requires jQuery) -->
                                     <script src="{{ theme_url }}/js/jquery-1.10.2.min.js"></script>

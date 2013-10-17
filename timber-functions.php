@@ -6,7 +6,6 @@
  * @since 0.1
  * @author Shawn Sandy <shawnsandy04@gmail.com>
  */
-
 /**
  * twig functions
  */
@@ -15,9 +14,22 @@ add_filter('timber_context', 'add_to_context');
 
 define('THEME_URL', get_template_directory_uri());
 
+function get_wp_template($template) {
+
+}
+
+/**
+ *
+ * @param type $data
+ * @return string
+ */
+function detect_mobiles() {
+    return new Mobile_Detect();
+}
+
 function add_to_context($data) {
     $twig_base = 'base.twig';
-    $mobile = new Mobile_Detect();
+    $bs_mobile = detect_mobiles();
 
     /* this is where you can add your own data to Timber's context object */
     $data['foo'] = 'bar';
@@ -35,16 +47,19 @@ function add_to_context($data) {
     $data['is_home'] = is_home();
 
 
-    if ($mobile->isMobile()):
+    if ($bs_mobile->isMobile()):
+
+        /** get the wp template */
+        add_filter('template_include', 'get_wp_template');
 
         /**
          * mobile twig baase template
          */
-        if (file_exists(trailingslashit(get_template_directory()) . 'views/mobile.twig'))
-            $twig_base = 'mobile.twig';
+        if (file_exists(trailingslashit(get_template_directory()) . 'views/mobile/mobile.twig'))
+            $twig_base = 'mobile/mobile-base.twig';
 
-        if($mobile->isTablet() AND file_exists(trailingslashit(get_template_directory()) . 'views/mobile.twig'))
-                $twig_base = 'tablet.twig';
+        if ($bs_mobile->isTablet() AND file_exists(trailingslashit(get_template_directory()) . 'views/mobile/tablet.twig'))
+            $twig_base = 'mobile/tablet.twig';
 
         /**
          * some variables for mobile
@@ -52,11 +67,11 @@ function add_to_context($data) {
          * {% if mobile.tablet %}do something{% emdif %}
          */
         $mobile['is_mobile'] = true;
-        $mobile['tablet'] = $mobile->isTablet();
-        $mobile['android'] = $mobile->isAndroidOS();
-        $mobile['ios'] = $mobile->isiOS();
-        $mobile['iphone'] = $mobile->isiPhone();
-        $mobile['ipad'] = $mobile->isiPad();
+        $mobile['tablet'] = $bs_mobile->isTablet();
+        $mobile['android'] = $bs_mobile->isAndroidOS();
+        $mobile['ios'] = $bs_mobile->isiOS();
+        $mobile['iphone'] = $bs_mobile->isiPhone();
+        $mobile['ipad'] = $bs_mobile->isiPad();
         $data['mobile'] = $mobile;
     endif;
 
@@ -74,7 +89,6 @@ function add_to_context($data) {
     $data['is_front_page'] = is_front_page();
     $data['base_twig'] = $twig_base;
     return $data;
-
 }
 
 function add_to_twig($twig) {
