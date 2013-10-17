@@ -6,9 +6,9 @@
 {% block content %}
 <div class="col-md-12 post">
 {% for post in posts %}
-		{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
-	{% endfor %}
-</div>
+{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
+{% endfor %}
+    </div>
 {% endblock content %}
 {% block scripts %}
 {{ parent() }}
