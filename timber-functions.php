@@ -9,9 +9,6 @@
  */
 
 
-
-
-
 /**
  * twig functions
  */
