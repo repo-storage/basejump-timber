@@ -21,7 +21,7 @@
 {{function('wp_head')}}
 {% endblock head %}
     </head>
-    <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
+    <body class="wp {{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
    <span id="top-page">   <!-- class content --> </span>
 
 
@@ -129,8 +129,7 @@
 
                                                 <address class="default-text">
                                                     <span class="sub-headlines">
-                                                       {{ config.contact_organization }} <span class="address-icon glyphicon glyphicon-map-marker">
-                                                            </span>
+                                                       {{ config.contact_organization }} <i class="icon-map-marker"></i>
                                                         </span>
                                                         <span>{{ config.contact_address }} {{ config.contact_city }} {{ config.contact_state }} {{ config.contact_zip_code }}</span>
                                                         <span>{{ config.contact_name }}</span>
@@ -150,7 +149,7 @@
            {% endblock footer %}
                                         <p class="regular-text">{{ config.contact_organization }} | Copyright {{"now"|date('Y')}}</p>
                                     </footer>
-     <a href="#top-page" id="top-link"><i class="loops-arrows"></i>top</a>
+     <a href="#top-page" id="top-link"><i class="icon-chevron-sign-up"></i></a>
              {% block scripts %}
                                     <!-- JavaScript plugins (requires jQuery) -->
                                     <script src="{{ theme_url }}/js/jquery-1.10.2.min.js"></script>

@@ -76,6 +76,7 @@ function header_styles(){
         <?php endif ?>
 
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/bootstrap/css/bootstrap.min.css'); ?>"/>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/font-awesome/css/font-awesome.min.css'); ?>"/>
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/open-sans/stylesheet.css'); ?>"/>
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/stylesheet.css'); ?>"/>
 
