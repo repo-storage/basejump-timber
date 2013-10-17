@@ -29,7 +29,7 @@
          {% block header %}
                 <nav id="top-nav" class="nav" data-trigger='#cover'>
                     <div class="container">
-                        <a href="{{ site_url }}" class="navbar-brand primary-text">Theme Starter 2.0</a>
+                        <a href="{{ site_url }}" class="navbar-brand primary-text">{{ site_title }}</a>
                         <ul class="nav navbar-nav pull-right">
                             <li><a href="#features">Features</a>
                                 <ul class="sub-menu">
@@ -63,18 +63,10 @@
                 </nav>
             {% endblock %}
             </header>
-            <section id="cover" class="cover">
-                <div class="container">
-                    {% block cover %}
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h1 class="fixie mast-head">{{ site_title }} </h1>
-                        </div>
-                        </div>
-                {% endblock cover %}
-</div>
-            </section>
+    {% block cover %}
 
+
+{% endblock cover %}
 
             <section id="content" role="main" class="content-wrapper">
                 <div class="container">
