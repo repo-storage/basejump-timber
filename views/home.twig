@@ -1,27 +1,35 @@
-{% extends base_tpl %}
+{% extends base_twig %}
 {% block cover %}
-<div class="row">
-                        <div class="col-md-4">
-                            <h1 class="fixie mast-head">Starter</h1>
+<section id="cover" class="cover fold">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1 class="fixie mast-head">Starter</h1>
 
-                            <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
-                                cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
-                                velit veritatis vero voluptatibus.</p>
-                        </div>
-                        <div class="col-md-8">
-                            <figure>
-                                <img src="http://lorempixel.com/820/380/technics" alt=""/>
-                            </figure>
-                        </div>
-</div>
+                <p class="fixie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis cumque
+                    cupiditate dolorum ea error fuga fugiat harum impedit iure labore laborum obcaecati quo quod, soluta
+                    velit veritatis vero voluptatibus.</p>
+            </div>
+            <div class="col-md-8">
+                <figure>
+                    <img src="http://lorempixel.com/820/380/technics" alt=""/>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock cover %}
 {% block content %}
-	{% for post in posts %}
+<div class="col-md-8 post">
+{% for post in posts %}
 		{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
 	{% endfor %}
+    </div>
+
 {% endblock content %}
 
 {% block sidebar %}
+<div id="sidebar" class="col-md-4 sidebar">
 {% if home_sidebar is empty %}
 <aside>
     <h1>Home Sidebar</h1>
@@ -29,4 +37,5 @@
 </aside>
 {% endif %}
 {{ home_sidebar }}
+</div>
 {% endblock sidebar %}
