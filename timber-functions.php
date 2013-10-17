@@ -32,7 +32,10 @@ function add_to_context($data) {
     $data['site_url'] = site_url();
     //$data['sidebar'] = Timber::get_widgets('primary-sidebar');
     $data['sidebar'] = Timber::get_widgets('primary-sidebar');
-    $data['home_sidebar'] = Timber::get_widgets('home-sidebar');
+    $data['info_1'] = Timber::get_widgets('info-1');
+    $data['info_2'] = Timber::get_widgets('info-2');
+    $data['info_3'] = Timber::get_widgets('info-3');
+    $data['info_4'] = Timber::get_widgets('info-4');
     $data['is_home'] = is_home();
     //pico theme variables converted to wordpress
     $data['config'] = get_theme_mods();
@@ -65,7 +68,7 @@ function myfoo($text) {
 
 function header_styles(){
     ob_start()?>
-
+<link rel="shortcut icon" href="<?php echo Theme_Function::file_uri('images/favicon.ico'); ?>">
         <?php if (mod_mobile::detect()->isIphone()): ?>
             <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
             <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
@@ -73,6 +76,7 @@ function header_styles(){
         <?php endif ?>
 
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/bootstrap/css/bootstrap.min.css'); ?>"/>
+        <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/font-awesome/css/font-awesome.min.css'); ?>"/>
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/fonts/open-sans/stylesheet.css'); ?>"/>
         <link rel="stylesheet" href="<?php echo Theme_Function::file_uri('assets/stylesheet.css'); ?>"/>
 

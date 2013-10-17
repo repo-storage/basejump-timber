@@ -21,7 +21,7 @@
 {{function('wp_head')}}
 {% endblock head %}
     </head>
-    <body class="{{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
+    <body class="wp {{body_class}}" data-source="base.twig" data-adminbar-option="" data-logged-in="{{ is_logged_in }}">
    <span id="top-page">   <!-- class content --> </span>
 
 
@@ -113,17 +113,23 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-8 headlines">
+                                            {{ info_1 }}
+                                                {% if info_1 is empty %}
+                                                <aside>
                                             <h1>Lorem ipsum dolor.</h1>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, sunt, facere, eius nemo sed quas atque asperiores qui nulla animi mollitia inventore rem consectetur temporibus quisquam? Consequuntur, porro, ipsam quasi obcaecati enim ipsum consectetur. Nobis, non, natus, aliquid, eos numquam asperiores culpa molestiae mollitia quod odit voluptates consectetur veritatis saepe fugit illum adipisci exercitationem cumque tempore animi optio nihil dolorem perspiciatis impedit repellendus veniam deserunt quam sunt labore est? Optio, vitae pariatur minus natus quia facere consectetur facilis error adipisci.</p>
                                             </aside>
+                                                {% endif %}
                                         </div>
                                         <div class="col-md-4">
+
+                                            {{ info_2 }}
+                                            {% if info_2 is empty %}
                         {% block address %}
 
                                                 <address class="default-text">
                                                     <span class="sub-headlines">
-                                                       {{ config.contact_organization }} <span class="address-icon glyphicon glyphicon-map-marker">
-                                                            </span>
+                                                       {{ config.contact_organization }} <i class="icon-map-marker"></i>
                                                         </span>
                                                         <span>{{ config.contact_address }} {{ config.contact_city }} {{ config.contact_state }} {{ config.contact_zip_code }}</span>
                                                         <span>{{ config.contact_name }}</span>
@@ -131,6 +137,7 @@
 
                                                     </address>
                      {% endblock address %}
+                     {% endif %}
                                                 </div>
 
 
@@ -142,7 +149,7 @@
            {% endblock footer %}
                                         <p class="regular-text">{{ config.contact_organization }} | Copyright {{"now"|date('Y')}}</p>
                                     </footer>
-     <a href="#top-page" id="top-link"><i class="loops-arrows"></i>top</a>
+     <a href="#top-page" id="top-link"><i class="icon-chevron-sign-up"></i></a>
              {% block scripts %}
                                     <!-- JavaScript plugins (requires jQuery) -->
                                     <script src="{{ theme_url }}/js/jquery-1.10.2.min.js"></script>
