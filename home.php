@@ -22,7 +22,7 @@
         $home_query = array('posts_per_page' => 3);
 	$timber_posts = Timber::get_posts($home_query);
 	$data['posts'] = $timber_posts;
-        $data['base_tpl'] = 'base.twig';
+        //$data['base_tpl'] = 'base.twig';
 	$templates = array('home.twig');
 	Timber::render($templates, $data);
 

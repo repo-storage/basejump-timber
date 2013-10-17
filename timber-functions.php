@@ -72,7 +72,7 @@ function add_to_context($data) {
     $data['meta'] = '';
     $data['pages'] = '';
     $data['is_front_page'] = is_front_page();
-    $data['base_tpl'] = $twig_base;
+    $data['base_twig'] = $twig_base;
     return $data;
 
 }
