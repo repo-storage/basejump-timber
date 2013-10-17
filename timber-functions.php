@@ -27,7 +27,7 @@ function get_wp_template($template){
  */
 function detect_mobiles(){
 
-    return $base_mobile = new Mobile_Detect();
+    return new Mobile_Detect();
 
 }
 
