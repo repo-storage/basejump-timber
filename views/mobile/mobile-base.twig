@@ -4,14 +4,14 @@
 <!-- add any mobile styles here -->
 {% endblock styles %}
 {% block content %}
-
-	{% for post in posts %}
+<div class="col-md-12 post">
+{% for post in posts %}
 		{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
 	{% endfor %}
-
+</div>
 {% endblock content %}
 {% block sidebar %}
-<!-- lets remove the sidebar on our mobile -->
+<!-- remove the sidebar on our mobile -->
 {% endblock sidebar %}
 
 {% block scripts %}

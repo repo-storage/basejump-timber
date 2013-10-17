@@ -27,7 +27,7 @@
 
         <header>
          {% block header %}
-                {% block top-nav %}
+                {% block top_nav %}
                 <nav id="top-nav" class="nav" data-trigger='#cover'>
                     <div class="container">
                         <a href="{{ site_url }}" class="navbar-brand primary-text">{{ site_title }}</a>
@@ -62,8 +62,8 @@
                     </div>
                     <div id="nav-separator"></div>
                 </nav>
-                {% endblock top-nav %}
-            {% endblock %}
+                {% endblock top_nav %}
+            {% endblock header %}
             </header>
     {% block cover %}
 {% endblock cover %}
@@ -79,8 +79,8 @@
                                 Sorry, no content
 
                             </div>
-{% endblock %}
-{% block sidebar %}
+{% endblock content %}
+                      {% block sidebar %}
                             <div id="sidebar" class="col-md-4 sidebar">
                                  <aside>
                                         <h3>About {{ site_title }}</h3>
@@ -98,7 +98,7 @@
                                 {{ sidebar }}
 
                                     </div>
-                                {% endblock sidebar %}
+                        {% endblock sidebar %}
                         </div>
                             </div>
                         </section>
