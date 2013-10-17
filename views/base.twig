@@ -78,6 +78,7 @@
                                 Sorry, no content
                             {% endblock %}
                             </div>
+{% block sidebar %}
                             <div id="sidebar" class="col-md-4 sidebar">
                                  <aside>
                                         <h3>About {{ site_title }}</h3>
@@ -91,11 +92,12 @@
                                         <p>{{ sample_widget }}</p>
                                     </aside>
                                     {% endif %}
-                                {% block sidebar %}
+
                                 {{ sidebar }}
-                                {% endblock sidebar %}
+
                                     </div>
-                                </div>
+                                {% endblock sidebar %}
+                        </div>
                             </div>
                         </section>
 
