@@ -40,11 +40,11 @@ function add_to_context($data) {
         /**
          * mobile twig baase template
          */
-        if (file_exists(trailingslashit(get_template_directory()) . 'views/mobile.twig'))
-            $twig_base = 'mobile.twig';
+        if (file_exists(trailingslashit(get_template_directory()) . 'views/mobile/mobile.twig'))
+            $twig_base = 'mobile/base.twig';
 
-        if($mobile->isTablet() AND file_exists(trailingslashit(get_template_directory()) . 'views/mobile.twig'))
-                $twig_base = 'tablet.twig';
+        if($mobile->isTablet() AND file_exists(trailingslashit(get_template_directory()) . 'views/mobile/tablet.twig'))
+                $twig_base = 'mobile/tablet.twig';
 
         /**
          * some variables for mobile
