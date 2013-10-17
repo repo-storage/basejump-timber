@@ -23,7 +23,9 @@
 	$timber_posts = Timber::get_posts($home_query);
 	$data['posts'] = $timber_posts;
         //$data['base_tpl'] = 'base.twig';
-	$templates = array('home.twig');
+	$templates = array('home.twig','index.twig');
+        if(detect_mobiles()->isMobile())
+            array_unshift ($templates, 'mobile/home.twig');
 	Timber::render($templates, $data);
 
 
