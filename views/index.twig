@@ -1,9 +1,8 @@
 {% extends base_twig %}
-
 {% block content %}
 <div class="col-md-8 post">
 	{% for post in posts %}
 		{% include ['content-'~post.format_post~'.twig', 'content.twig'] %}
 	{% endfor %}
-    </div>
+</div>
 {% endblock content %}
