@@ -24,7 +24,6 @@ function get_wp_template($template) {
  * @return string
  */
 function detect_mobiles() {
-
     return new Mobile_Detect();
 }
 
