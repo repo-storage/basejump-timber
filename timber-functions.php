@@ -6,7 +6,6 @@
  * @since 0.1
  * @author Shawn Sandy <shawnsandy04@gmail.com>
  */
-
 /**
  * twig functions
  */
@@ -43,8 +42,8 @@ function add_to_context($data) {
         if (file_exists(trailingslashit(get_template_directory()) . 'views/mobile/mobile.twig'))
             $twig_base = 'mobile/mobile-base.twig';
 
-        if($mobile->isTablet() AND file_exists(trailingslashit(get_template_directory()) . 'views/mobile/tablet.twig'))
-                $twig_base = 'mobile/tablet.twig';
+        if ($mobile->isTablet() AND file_exists(trailingslashit(get_template_directory()) . 'views/mobile/tablet.twig'))
+            $twig_base = 'mobile/tablet.twig';
 
         /**
          * some variables for mobile
@@ -74,7 +73,6 @@ function add_to_context($data) {
     $data['is_front_page'] = is_front_page();
     $data['base_twig'] = $twig_base;
     return $data;
-
 }
 
 function add_to_twig($twig) {
