@@ -1,5 +1,8 @@
 {% extends "base.twig" %}
-
+{% block styles %}
+{{ parent() }}
+<!-- add any mobile styles here -->
+{% endblock styles %}
 {% block content %}
 
 	{% for post in posts %}
@@ -7,3 +10,11 @@
 	{% endfor %}
 
 {% endblock content %}
+{% block sidebar %}
+<!-- lets remove the sidebar on our mobile -->
+{% endblock sidebar %}
+
+{% block scripts %}
+{{ parent() }}
+<!-- add any mobile scripts here -->
+{% endblock scripts %}
