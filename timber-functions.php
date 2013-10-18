@@ -44,8 +44,9 @@ function add_to_context($data) {
     $data['info_2'] = Timber::get_widgets('info-2');
     $data['info_3'] = Timber::get_widgets('info-3');
     $data['info_4'] = Timber::get_widgets('info-4');
+    $data['primary_menu'] = new TimberMenu('primary');
     $data['is_home'] = is_home();
-
+   
 
     if ($bs_mobile->isMobile()):
 
