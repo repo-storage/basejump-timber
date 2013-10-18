@@ -27,7 +27,7 @@
         if(detect_mobiles()->isMobile())
             array_unshift ($templates, 'mobile/home.twig');
 	Timber::render($templates, $data);
-        var_dump($data['posts']);
+//        var_dump($data['posts']);
 
 
 
