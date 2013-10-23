@@ -46,7 +46,7 @@ function add_to_context($data) {
     $data['info_4'] = Timber::get_widgets('info-4');
     $data['primary_menu'] = new TimberMenu('primary');
     $data['is_home'] = is_home();
-   
+
 
     if ($bs_mobile->isMobile()):
 
@@ -67,7 +67,7 @@ function add_to_context($data) {
          * {{ mobile.tablet }}
          * {% if mobile.tablet %}do something{% emdif %}
          */
-        $mobile['is_mobile'] = true;
+        $mobile['is_mobile'] = false;
         $mobile['tablet'] = $bs_mobile->isTablet();
         $mobile['android'] = $bs_mobile->isAndroidOS();
         $mobile['ios'] = $bs_mobile->isiOS();
