@@ -1,5 +1,5 @@
-<ul class="nav nav-bar-nav">
-		{% for item in primary_menu.get_items %}
+<ul class="nav">
+{% for item in primary_menu.get_items %}
         <li><a class="nav-main-link" href="{{item.get_path}}">{{item.title}}</a>
             {% if item.get_children %}
                 <ul class="sub-menu">
@@ -8,5 +8,5 @@
                 {% endfor %}
                         </ul>
             {% endif %}
-		{% endfor %}
+{% endfor %}
 </ul>
