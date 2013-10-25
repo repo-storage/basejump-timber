@@ -94,15 +94,13 @@
                                     {{ config.site_slug }}
                                             </p>
                                         </aside>
-                                    {% if sidebar is empty %}
+                                    {% if sidebars.sidebar is empty %}
                                         <aside>
                                             <h1>Sidebar</h1>
                                             <p>{{ sample_widget }}</p>
                                         </aside>
                                     {% endif %}
-
-                                {{ sidebar }}
-
+                                {{ sidebars.sidebar }}
                                     </div>
                         {% endblock sidebar %}
                                 </div>
