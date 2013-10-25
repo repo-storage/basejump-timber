@@ -47,8 +47,9 @@ function add_to_context($data) {
     $sidebars['info_2'] = Timber::get_widgets('info-2');
     $sidebars['info_3'] = Timber::get_widgets('info-3');
     $sidebars['info_4'] = Timber::get_widgets('info-4');
+    $sidebars['home_sidebar'] = Timber::get_widgets('home-sidebar');
     $sidebars['primary_menu'] = new TimberMenu('primary');
-    $sidebars['home'] = new TimberMenu('homne-sidebar');
+
     $data['sidebars'] = $sidebars ;
 
     if ($bs_mobile->isMobile()):
