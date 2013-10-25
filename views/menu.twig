@@ -1,0 +1,12 @@
+<ul class="nav nav-bar-nav">
+		{% for item in primary_menu.get_items %}
+        <li><a class="nav-main-link" href="{{item.get_path}}">{{item.title}}</a>
+            {% if item.get_children %}
+                <ul class="sub-menu">
+                {% for child in item.get_children %}
+                        <li><a href="{{child.get_path}}">{{child.title}}</a></li>
+                {% endfor %}
+                        </ul>
+            {% endif %}
+		{% endfor %}
+</ul>

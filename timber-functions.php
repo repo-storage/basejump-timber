@@ -38,15 +38,19 @@ function add_to_context($data) {
     $data['theme_mod'] = get_theme_mods();
     $data['options'] = wp_load_alloptions();
     $data['site_url'] = site_url();
-    $data['sidebar'] = Timber::get_widgets('primary-sidebar');
-    $data['sidebar_2'] = Timber::get_widgets('sidebar-2');
-    $data['info_1'] = Timber::get_widgets('info-1');
-    $data['info_2'] = Timber::get_widgets('info-2');
-    $data['info_3'] = Timber::get_widgets('info-3');
-    $data['info_4'] = Timber::get_widgets('info-4');
-    $data['primary_menu'] = new TimberMenu('primary');
     $data['is_home'] = is_home();
-   
+
+    //sidebars
+    $sidebars['sidebar'] = Timber::get_widgets('primary-sidebar');
+    $sidebars['sidebar_2'] = Timber::get_widgets('sidebar-2');
+    $sidebars['info_1'] = Timber::get_widgets('info-1');
+    $sidebars['info_2'] = Timber::get_widgets('info-2');
+    $sidebars['info_3'] = Timber::get_widgets('info-3');
+    $sidebars['info_4'] = Timber::get_widgets('info-4');
+    $sidebars['home_sidebar'] = Timber::get_widgets('home-sidebar');
+    $sidebars['primary_menu'] = new TimberMenu('primary');
+
+    $data['sidebars'] = $sidebars ;
 
     if ($bs_mobile->isMobile()):
 
@@ -67,7 +71,7 @@ function add_to_context($data) {
          * {{ mobile.tablet }}
          * {% if mobile.tablet %}do something{% emdif %}
          */
-        $mobile['is_mobile'] = true;
+        $mobile['is_mobile'] = false;
         $mobile['tablet'] = $bs_mobile->isTablet();
         $mobile['android'] = $bs_mobile->isAndroidOS();
         $mobile['ios'] = $bs_mobile->isiOS();

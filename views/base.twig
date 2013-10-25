@@ -60,8 +60,11 @@
                             </li>
                         </ul>
                     </div>
+</nav>
+{% include 'nav.twig' %}
+                    </div>
                     <div id="nav-separator"></div>
-                </nav>
+
                 {% endblock top_nav %}
             {% endblock header %}
             </header>
@@ -83,18 +86,7 @@
                       {% block sidebar %}
                                 <div id="sidebar" class="col-md-4 sidebar">
 <nav>
-	<ul class="main-nav">
-		{% for item in primary_menu.get_items %}
-            <li class="nav-main-item"><a class="nav-main-link" href="{{item.get_path}}">{{item.title}}</a>
-            {% if item.get_children %}
-            	<ul class="nav-drop">
-                {% for child in item.get_children %}
-                    <li class="nav-drop-item"><a href="{{child.get_path}}">{{child.title}}</a></li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-		{% endfor %}
-	</ul>
+{% include 'menu.twig' %}
 </nav>
                                     <aside>
                                         <h3>About {{ site_title }}</h3>
@@ -102,15 +94,14 @@
                                     {{ config.site_slug }}
                                             </p>
                                         </aside>
-                                    {% if sidebar is empty %}
+
+{% if sidebars.sidebar is empty %}
                                         <aside>
                                             <h1>Sidebar</h1>
                                             <p>{{ sample_widget }}</p>
                                         </aside>
                                     {% endif %}
-
-                                {{ sidebar }}
-
+                                {{ sidebars.sidebar }}
                                     </div>
                         {% endblock sidebar %}
                                 </div>

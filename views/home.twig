@@ -30,12 +30,12 @@
 
 {% block sidebar %}
 <div id="sidebar" class="col-md-4 sidebar">
-{% if home_sidebar is empty %}
+{% if sidebars.home_sidebar is empty %}
 <aside>
     <h1>Home Sidebar</h1>
     <p>{{ sample_widget }}</p>
 </aside>
 {% endif %}
-{{ home_sidebar }}
+{{ sidebars.home_sidebar }}
 </div>
 {% endblock sidebar %}
