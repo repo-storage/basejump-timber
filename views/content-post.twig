@@ -2,8 +2,7 @@
 {% block content %}
 <h1><a href="{{post.permalink}}">{{post.title}}</a></h1>
 <p>{{post.get_preview(25)}}</p>
-
-		{% if post.get_thumbnail %}
+{% if post.get_thumbnail %}
 <img src="{{post.get_thumbnail.get_url}}" />
 {% endif %}
 {% endblock %}
