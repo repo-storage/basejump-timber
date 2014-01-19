@@ -68,8 +68,6 @@ function _bj_layout() {
  */
 if (file_exists(get_template_directory() . '/theme-options.php')):
     include_once get_template_directory() . '/theme-options.php';
-else:
-    include_once CWP_PATH . '/theme-options/theme-options.php';
 endif;
 
 
