@@ -411,7 +411,7 @@ BJ_MCE_Editor::register_widget();
 /**
  * REcent thumbs
  */
-Recent_thumbs_Widget::register_widget();
+//Recent_thumbs_Widget::register_widget();
 
 /**
  * *****************************************************************************
